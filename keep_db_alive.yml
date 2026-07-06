@@ -1,0 +1,12 @@
+name: Keep Supabase Alive
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Runs every Sunday
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        run: |
+          curl -X GET "https://bupiftbzkaagxdaqtxac.supabase.co/rest/v1/game_assets" \
+          -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1cGlmdGJ6a2FhZ3hkYXF0eGFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwMjI5NjIsImV4cCI6MjA5NzU5ODk2Mn0.eJO0ssddbmSFcFfBVjvbrlOABMFIm8hAVSoXOkEKEck"
